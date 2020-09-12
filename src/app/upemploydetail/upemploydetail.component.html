@@ -1,0 +1,33 @@
+<h1 class="mt-4 text-danger text-uppercase text-center">Employee Registration Form</h1>
+
+<!-- Alert Notification. -->
+
+<div class="mt-4 container" [class] = "isShow? 'show' : 'hide' ">
+    <span *ngIf = "isAlert;then alertsucc else alertunsucc">
+       Alert Notification.
+    </span>
+    <ng-template #alertsucc>
+        <div class="alert alert-success" role="alert">
+            Employee Registered Successfully!
+        </div>
+    </ng-template>
+    <ng-template #alertunsucc>
+        <div class="alert alert-danger" role="alert">
+            Employee Registered Unsuccessfull!
+        </div>
+    </ng-template>
+ </div>
+
+ <!-- / Alert Notification. -->
+
+<div class="container mt-5">
+    <form #userForm = "ngForm" (ngSubmit) = "onAddEmployee(userForm.value)">
+        <input type="text" name="ename" class="form-control" placeholder="Enter Employee Name" ngModel>
+        <input type="text" name="esalary" class="form-control mt-3 mb-3" placeholder="Enter Employee Salary" ngModel>
+        <input type="text" name="edepartment" class="form-control" placeholder="Enter Working Department" ngModel>
+        <input type="text" name="eemail" class="form-control mt-3 mb-3" placeholder="Enter Employee Email" ngModel>
+        <input type="text" name="ecnumber" class="form-control" placeholder="Enter Mobile Number" ngModel>
+
+        <button type="submit" class="btn btn-success btn-block mt-4">Submit Details</button>
+    </form>
+</div>
